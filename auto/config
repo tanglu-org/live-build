@@ -1,0 +1,17 @@
+#!/bin/sh
+
+lb config noauto \
+      --distribution aequorea \
+      --binary-images iso-hybrid \
+      --archive-areas "main contrib non-free" \
+      --mirror-bootstrap http://archive.tanglu.org/tanglu \
+      --mirror-binary http://archive.tanglu.org/tanglu \
+      --build-with-chroot false \
+      --bootloader syslinux \
+      --security false \
+      --updates false \
+      --linux-flavours "generic" \
+      --firmware-chroot false \
+      "${@}"
+
+echo tanglu-kde > config/package-lists/desktop.list.chroot
