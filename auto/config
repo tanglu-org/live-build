@@ -12,6 +12,7 @@ lb config noauto \
       --updates false \
       --linux-flavours "generic" \
       --firmware-chroot false \
+      --initsystem systemd \
       "${@}"
 
 echo tanglu-kde > config/package-lists/desktop.list.chroot
