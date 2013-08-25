@@ -10,7 +10,6 @@ lb config noauto \
       --bootloader syslinux \
       --security false \
       --updates false \
-      --linux-flavours "generic" \
       --firmware-chroot false \
       --initsystem systemd \
       "${@}"
