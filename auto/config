@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -e
 
 lb config noauto \
       --distribution aequorea \
@@ -14,4 +14,22 @@ lb config noauto \
       --initsystem systemd \
       "${@}"
 
-echo tanglu-kde > config/package-lists/desktop.list.chroot
+
+    #Some fancy colors
+    RED=$(tput setaf 1)
+    BRIGHT=$(tput bold)
+    NORMAL=$(tput sgr0)
+
+    if [ -z "$FLAVOR" ]; then
+        FLAVOR="kde"
+        echo "${RED}${BRIGHT}WARNING WARNING WARNING${NORMAL}"
+        echo "${BRIGHT}FLAVOR is not defined, choosing $FLAVOR by default."
+        echo "Set FLAVOR to 'gnome' if you want a gnome desktop${NORMAL}"
+    fi
+
+    case "$FLAVOR" in
+        "kde"|"KDE") echo tanglu-kde > config/package-lists/desktop.list.chroot
+        ;;
+        "gnome"|"GNOME") echo tanglu-gnome > config/package-lists/desktop.list.chroot
+        ;;
+    esac
