@@ -33,4 +33,3 @@ case "$FLAVOR" in
     "gnome"|"GNOME") echo tanglu-gnome > config/package-lists/desktop.list.chroot
     ;;
 esac
-

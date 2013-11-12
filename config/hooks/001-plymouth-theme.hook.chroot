@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+if [ -e /usr/sbin/plymouth-set-default-theme ] && [ -e /lib/plymouth/themes/tanglu-logo/tanglu-logo.plymouth ]
+then
+	plymouth-set-default-theme tanglu-logo
+fi
