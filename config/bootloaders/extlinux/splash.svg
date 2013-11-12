@@ -58,7 +58,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -83,7 +83,7 @@
     <g
        style="display:inline"
        id="g4573"
-       transform="matrix(0.28019161,0,0,-0.28019161,-1538.5929,4777.9865)"
+       transform="matrix(0.28019161,0,0,-0.28019161,-1587.8786,4692.9865)"
        inkscape:export-filename="/home/konj/Tanglu LOGO/text4548.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
