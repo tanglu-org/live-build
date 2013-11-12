@@ -10,7 +10,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="640"
-   height="300"
+   height="480"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -39,9 +39,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="173.90603"
-     inkscape:cy="161.87746"
+     inkscape:zoom="0.7"
+     inkscape:cx="585.33459"
+     inkscape:cy="258.30606"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -49,7 +49,11 @@
      inkscape:window-height="1030"
      inkscape:window-x="-2"
      inkscape:window-y="-3"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -66,24 +70,23 @@
      inkscape:label="Fond"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-752.36218)">
-    <rect
-       style="fill:#000000;fill-opacity:1;stroke:none"
-       id="rect2985"
-       width="640"
-       height="300"
-       x="0"
-       y="752.36218" />
-  </g>
+     transform="translate(411.42856,-554.50506)" />
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Logo"
-     transform="translate(0,-780)">
+     transform="translate(411.42856,-582.14288)">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="rect3328"
+       width="640"
+       height="480"
+       x="-411.42856"
+       y="582.14288" />
     <g
        style="display:inline"
        id="g4573"
-       transform="matrix(0.28019161,0,0,-0.28019161,-1587.8786,4692.9865)"
+       transform="matrix(0.14403398,0,0,-0.14403398,-938.0412,2612.689)"
        inkscape:export-filename="/home/konj/Tanglu LOGO/text4548.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
