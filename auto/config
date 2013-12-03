@@ -1,9 +1,16 @@
 #!/bin/bash -e
 
-#Some fancy colors
+# some fancy colors
 RED=$(tput setaf 1)
 BRIGHT=$(tput bold)
 NORMAL=$(tput sgr0)
+
+# current architecture
+arch=$(dpkg --print-architecture)
+
+# options
+lb_opts=""
+dist="aequorea"
 
 if [ -z "$FLAVOR" ]; then
     FLAVOR="kde"
@@ -12,19 +19,57 @@ if [ -z "$FLAVOR" ]; then
     echo "Set FLAVOR to 'gnome' if you want a gnome desktop${NORMAL}"
 fi
 
+# live-build doesn't work if --parent-debian-distribution is unknown of
+# debian-cd => we have to put a symlink so that it deals with Tanglu like jessie/sid
+if [ ! -e "/usr/share/live/build/data/debian-cd/$dist" ]; then
+    if [ -w /usr/share/live/build/data/debian-cd ]; then
+        ln -sf sid "/usr/share/live/build/data/debian-cd/$dist"
+    else
+        echo "ERROR: Run this first:"
+        echo "ln -sf sid /usr/share/live/build/data/debian-cd/$dist"
+        exit 1
+    fi
+fi
+
+case "$arch" in
+    amd64)
+        lb_opts="$lb_opts --debian-installer live"
+    ;;
+    i386)
+        lb_opts="$lb_opts --debian-installer live --linux-flavours 686-pae"
+    ;;
+    *)
+        echo "WARNING: configuration not tested on arch $arch" >&2
+    ;;
+esac
+
+case "$FLAVOR" in
+    "kde") FLAVOR="KDE"
+    ;;
+    "gnome") FLAVOR="GNOME"
+    ;;
+esac
+
+
 lb config noauto \
-      --distribution aequorea \
+      --distribution "$dist" \
+      --debian-installer-distribution "$dist" \
       --binary-images iso-hybrid \
       --archive-areas "main contrib non-free" \
       --mirror-bootstrap http://archive.tanglu.org/tanglu \
       --mirror-binary http://archive.tanglu.org/tanglu \
+      --keyring-packages tanglu-archive-keyring \
       --build-with-chroot false \
       --bootloader syslinux \
       --security false \
       --updates false \
       --firmware-chroot false \
       --initsystem systemd \
+      --iso-application "Tanglu GNU/Linux" \
+      --iso-publisher "Tanglu Project" \
+      --iso-volume "Tanglu $FLAVOR Live" \
       --image-name tanglu-live-$FLAVOR \
+      $lb_opts \
       "${@}"
 
 case "$FLAVOR" in
