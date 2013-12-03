@@ -49,7 +49,7 @@ case "$FLAVOR" in
     "gnome") FLAVOR="GNOME"
     ;;
 esac
-
+FLAVOR_lowercase=${FLAVOR,,}
 
 lb config noauto \
       --distribution "$dist" \
@@ -68,7 +68,7 @@ lb config noauto \
       --iso-application "Tanglu GNU/Linux" \
       --iso-publisher "Tanglu Project" \
       --iso-volume "Tanglu $FLAVOR Live" \
-      --image-name tanglu-live-$FLAVOR \
+      --image-name tanglu-live-$FLAVOR_lowercase \
       $lb_opts \
       "${@}"
 
