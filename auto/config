@@ -63,7 +63,8 @@ lb config noauto \
       --bootloader syslinux \
       --security false \
       --updates false \
-      --firmware-chroot false \
+      --firmware-binary true \
+      --firmware-chroot true \
       --initsystem systemd \
       --iso-application "Tanglu GNU/Linux" \
       --iso-publisher "Tanglu Project" \
