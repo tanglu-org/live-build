@@ -11,6 +11,7 @@ arch=$(dpkg --print-architecture)
 # options
 lb_opts=""
 dist="aequorea"
+dist_version="1.1"
 
 if [ -z "$FLAVOR" ]; then
     FLAVOR="kde"
@@ -44,9 +45,13 @@ case "$arch" in
 esac
 
 case "$FLAVOR" in
-    "kde") FLAVOR="KDE"
+    "kde"|"KDE")
+        echo tanglu-kde > config/package-lists/desktop.list.chroot
+        FLAVOR="KDE"
     ;;
-    "gnome") FLAVOR="GNOME"
+    "gnome"|"GNOME")
+        echo tanglu-gnome > config/package-lists/desktop.list.chroot
+        FLAVOR="GNOME"
     ;;
 esac
 FLAVOR_lowercase=${FLAVOR,,}
@@ -68,14 +73,7 @@ lb config noauto \
       --initsystem systemd \
       --iso-application "Tanglu GNU/Linux" \
       --iso-publisher "Tanglu Project" \
-      --iso-volume "Tanglu $FLAVOR Live" \
-      --image-name tanglu-live-$FLAVOR_lowercase \
+      --iso-volume "Tanglu $dist_version $FLAVOR Live" \
+      --image-name tanglu-$FLAVOR_lowercase-live \
       $lb_opts \
       "${@}"
-
-case "$FLAVOR" in
-    "kde"|"KDE") echo tanglu-kde > config/package-lists/desktop.list.chroot
-    ;;
-    "gnome"|"GNOME") echo tanglu-gnome > config/package-lists/desktop.list.chroot
-    ;;
-esac
