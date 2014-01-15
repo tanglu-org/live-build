@@ -60,6 +60,8 @@ case "$FLAVOR" in
     FLAVOR_PRETTY="KDE Plasma Desktop"
     # create package config
     cat > config/package-lists/desktop.list.chroot <<EOF
+tanglu-standard
+grub2
 tanglu-kde
 tanglu-live-installer-slideshow-kde
 tanglu-live-installer
@@ -71,6 +73,8 @@ EOF
     FLAVOR_PRETTY="GNOME Desktop"
     # create package config
     cat > config/package-lists/desktop.list.chroot <<EOF
+tanglu-standard
+grub2
 tanglu-gnome
 tanglu-live-installer-slideshow-gnome
 tanglu-live-installer
