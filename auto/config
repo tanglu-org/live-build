@@ -14,66 +14,83 @@ dist="aequorea"
 dist_version="1.1"
 
 if [ -z "$FLAVOR" ]; then
-    FLAVOR="kde"
-    echo "${RED}${BRIGHT}WARNING WARNING WARNING${NORMAL}"
-    echo "${BRIGHT}FLAVOR is not defined, choosing $FLAVOR by default."
-    echo "Set FLAVOR to 'gnome' if you want a gnome desktop${NORMAL}"
+  FLAVOR="kde"
+  echo "${RED}${BRIGHT}WARNING WARNING WARNING${NORMAL}"
+  echo "${BRIGHT}FLAVOR is not defined, choosing $FLAVOR by default."
+  echo "Set FLAVOR to 'gnome' if you want a gnome desktop${NORMAL}"
 fi
 
 # live-build doesn't work if --parent-debian-distribution is unknown of
 # debian-cd => we have to put a symlink so that it deals with Tanglu like jessie/sid
 if [ ! -e "/usr/share/live/build/data/debian-cd/$dist" ]; then
-    if [ -w /usr/share/live/build/data/debian-cd ]; then
-        ln -sf sid "/usr/share/live/build/data/debian-cd/$dist"
-    else
-        echo "ERROR: Run this first:"
-        echo "ln -sf sid /usr/share/live/build/data/debian-cd/$dist"
-        exit 1
-    fi
+  if [ -w /usr/share/live/build/data/debian-cd ]; then
+    ln -sf sid "/usr/share/live/build/data/debian-cd/$dist"
+  else
+    echo "ERROR: Run this first:"
+    echo "ln -sf sid /usr/share/live/build/data/debian-cd/$dist"
+    exit 1
+  fi
 fi
 
 case "$arch" in
-    amd64)
-        lb_opts="$lb_opts --debian-installer live"
-    ;;
-    i386)
-        lb_opts="$lb_opts --debian-installer live --linux-flavours 686-pae"
-    ;;
-    *)
-        echo "WARNING: configuration not tested on arch $arch" >&2
-    ;;
+  amd64)
+    lb_opts="$lb_opts --debian-installer live"
+  ;;
+  i386)
+    lb_opts="$lb_opts --debian-installer live --linux-flavours 686-pae"
+  ;;
+  *)
+    echo "WARNING: configuration not tested on arch $arch" >&2
+  ;;
 esac
 
+DEBIAN_INSTALLER_CONF="--debian-installer-distribution '$dist'"
+
+# configure selected flavor
 case "$FLAVOR" in
-    "kde"|"KDE")
-        echo tanglu-kde > config/package-lists/desktop.list.chroot
-        FLAVOR="KDE"
-    ;;
-    "gnome"|"GNOME")
-        echo tanglu-gnome > config/package-lists/desktop.list.chroot
-        FLAVOR="GNOME"
-    ;;
+  "kde"|"KDE")
+    echo tanglu-kde >
+    FLAVOR="KDE"
+    FLAVOR_PRETTY="KDE Plasma Desktop"
+    # create package config
+    cat > config/package-lists/desktop.list.chroot <<EOL
+tanglu-kde
+tanglu-live-installer-slideshow-kde
+tanglu-live-installer
+EOL
+    cp -r config/kde-chroot_local-includes/root config/chroot_local-includes/root
+  ;;
+  "gnome"|"GNOME")
+    FLAVOR="GNOME"
+    FLAVOR_PRETTY="GNOME Desktop"
+    # create package config
+    cat > config/package-lists/desktop.list.chroot <<EOL
+tanglu-gnome
+tanglu-live-installer-slideshow-gnome
+tanglu-live-installer
+EOL
+  ;;
 esac
 FLAVOR_lowercase=${FLAVOR,,}
 
 lb config noauto \
-      --distribution "$dist" \
-      --debian-installer-distribution "$dist" \
-      --binary-images iso-hybrid \
-      --archive-areas "main contrib non-free" \
-      --mirror-bootstrap http://archive.tanglu.org/tanglu \
-      --mirror-binary http://archive.tanglu.org/tanglu \
-      --keyring-packages tanglu-archive-keyring \
-      --build-with-chroot false \
-      --bootloader syslinux \
-      --security false \
-      --updates false \
-      --firmware-binary true \
-      --firmware-chroot true \
-      --initsystem systemd \
-      --iso-application "Tanglu GNU/Linux" \
-      --iso-publisher "Tanglu Project" \
-      --iso-volume "Tanglu $dist_version $FLAVOR Live" \
-      --image-name tanglu-$FLAVOR_lowercase-live \
-      $lb_opts \
-      "${@}"
+    --distribution "$dist" \
+    --binary-images iso-hybrid \
+    --archive-areas "main contrib non-free" \
+    --mirror-bootstrap http://archive.tanglu.org/tanglu \
+    --mirror-binary http://archive.tanglu.org/tanglu \
+    --keyring-packages tanglu-archive-keyring \
+    --build-with-chroot false \
+    --bootloader syslinux \
+    --security false \
+    --updates false \
+    --firmware-binary true \
+    --firmware-chroot true \
+    --initsystem systemd \
+    --iso-application "Tanglu GNU/Linux" \
+    --iso-publisher "Tanglu Project" \
+    --iso-volume "Tanglu $dist_version $FLAVOR Live" \
+    --image-name tanglu-$FLAVOR_lowercase-live \
+    $DEBIAN_INSTALLER_CONF \
+    $lb_opts \
+    "${@}"
