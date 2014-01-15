@@ -45,12 +45,15 @@ case "$arch" in
   ;;
 esac
 
+# create some directories which we will need later
+mkdir -p config/package-lists
+mkdir -p config/chroot_local-includes
+
 DEBIAN_INSTALLER_CONF="--debian-installer-distribution '$dist'"
 # NOTE: We currently disable d-i and only use the custom live-installer
 DEBIAN_INSTALLER_CONF=""
 
 # configure selected flavor
-mkdir -p config/package-lists
 case "$FLAVOR" in
   "kde"|"KDE")
     FLAVOR="KDE"
