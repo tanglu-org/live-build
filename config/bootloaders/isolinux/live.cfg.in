@@ -1,5 +1,5 @@
 label live-@FLAVOUR@
-	menu label Tanglu ^Live (@FLAVOUR@)
+	menu label ^Try or Install Tanglu (@FLAVOUR@)
 	menu default
 	linux @LINUX@
 	initrd @INITRD@

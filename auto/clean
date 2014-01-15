@@ -2,5 +2,7 @@
 
 lb clean noauto "${@}"
 
-rm -f config/binary config/bootstrap config/chroot config/common config/source
-rm -f build.log
+rm -f  config/binary config/bootstrap config/chroot config/common config/source
+rm -rf config/chroot_local-includes/root config/package-lists
+rm -f config/bootloaders/splash.svg
+rm -f  build.log

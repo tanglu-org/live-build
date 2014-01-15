@@ -12,6 +12,7 @@ arch=$(dpkg --print-architecture)
 lb_opts=""
 dist="aequorea"
 dist_version="1.1"
+dist_reltag="BETA2"
 
 if [ -z "$FLAVOR" ]; then
   FLAVOR="kde"
@@ -45,33 +46,45 @@ case "$arch" in
 esac
 
 DEBIAN_INSTALLER_CONF="--debian-installer-distribution '$dist'"
+# NOTE: We currently disable d-i and only use the custom live-installer
+DEBIAN_INSTALLER_CONF=""
 
 # configure selected flavor
+mkdir -p config/package-lists
 case "$FLAVOR" in
   "kde"|"KDE")
-    echo tanglu-kde >
     FLAVOR="KDE"
     FLAVOR_PRETTY="KDE Plasma Desktop"
     # create package config
-    cat > config/package-lists/desktop.list.chroot <<EOL
+    cat > config/package-lists/desktop.list.chroot <<EOF
 tanglu-kde
 tanglu-live-installer-slideshow-kde
 tanglu-live-installer
-EOL
+EOF
     cp -r config/kde-chroot_local-includes/root config/chroot_local-includes/root
   ;;
   "gnome"|"GNOME")
     FLAVOR="GNOME"
     FLAVOR_PRETTY="GNOME Desktop"
     # create package config
-    cat > config/package-lists/desktop.list.chroot <<EOL
+    cat > config/package-lists/desktop.list.chroot <<EOF
 tanglu-gnome
 tanglu-live-installer-slideshow-gnome
 tanglu-live-installer
-EOL
+EOF
   ;;
 esac
-FLAVOR_lowercase=${FLAVOR,,}
+
+# create a pretty version name, containing all information
+if [ x"$dist_reltag" = x"" ]; then
+  VERSION_PRETTY="$dist_version ($dist)"
+else
+  VERSION_PRETTY="$dist_version [$dist_reltag] ($dist)"
+fi
+
+# update our splash screen
+sed -e s/@FLAVOR_PRETTY@/"$FLAVOR_PRETTY"/g config/bootloaders/splash.svg.in > config/bootloaders/splash.svg
+sed -i s/@VERSION@/"$VERSION_PRETTY"/g config/bootloaders/splash.svg
 
 lb config noauto \
     --distribution "$dist" \
@@ -90,7 +103,7 @@ lb config noauto \
     --iso-application "Tanglu GNU/Linux" \
     --iso-publisher "Tanglu Project" \
     --iso-volume "Tanglu $dist_version $FLAVOR Live" \
-    --image-name tanglu-$FLAVOR_lowercase-live \
+    --image-name tanglu-${FLAVOR,,}-live \
     $DEBIAN_INSTALLER_CONF \
     $lb_opts \
     "${@}"
