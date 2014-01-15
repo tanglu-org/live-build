@@ -1,8 +1,8 @@
 #!/bin/sh
-
 set -e
 
 if [ -e /usr/sbin/plymouth-set-default-theme ] && [ -e /usr/share/plymouth/themes/tanglu-logo ]
 then
 	plymouth-set-default-theme -R tanglu-logo
+	/usr/sbin/update-initramfs -u
 fi
