@@ -38,8 +38,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="585.33459"
+     inkscape:zoom="1.4"
+     inkscape:cx="500.33459"
      inkscape:cy="258.30606"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
@@ -111,18 +111,34 @@
          inkscape:export-xdpi="90"
          inkscape:export-ydpi="90" />
     </g>
-    <text
-       xml:space="preserve"
+    <g
        style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none;font-family:Cantarell;-inkscape-font-specification:Cantarell"
-       x="-247.42856"
-       y="709.00006"
-       id="text2991"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2993"
-         x="-247.42856"
-         y="709.00006"
-         style="font-size:100px;fill:#e6e6e6">Tanglu</tspan></text>
+       id="text2991">
+      <path
+         d="m -246.42856,639.60006 0,7.3 23.1,0 0,62.1 8.3,0 0,-62.1 23.2,0 0,-7.3 -54.6,0"
+         style="font-size:100px;fill:#e6e6e6"
+         id="path2998" />
+      <path
+         d="m -167.48793,667.00006 c 5.99999,0 9.6,1.9 11,5.7 0.6,1.6 0.9,4 0.9,7.5 l 0,0.4 c -7.4,0.2 -13.40001,0.9 -18.2,2.1 -6.3,1.7 -11.8,6.30001 -11.8,14.3 0,7.79999 7.10001,13.2 15.5,13.2 5.39999,0 10.3,-2 14.8,-5.7 l 1.8,4.5 6.2,0 0,-31.3 c 0,-7.89999 -1.70001,-11.5 -6.8,-14.9 -2.7,-1.8 -6.90001,-2.7 -12.5,-2.7 -5.6,0 -11.00001,1 -16.2,3 l 0,6.5 c 4.09999,-1.4 11.2,-2.6 15.3,-2.6 m -1.4,36.7 c -1.2,0 -2.4,-0.2 -3.3,-0.6 -2.8,-1.3 -5.3,-3.7 -5.3,-7.1 0,-1.2 0.4,-2.3 1.1,-3.5 1.6,-2.6 4.3,-4.2 8,-5 1.99999,-0.4 6.2,-0.7 12.8,-0.9 l 0,11.5 c -3.5,3.4 -7.50001,5.6 -13.3,5.6"
+         style="font-size:100px;fill:#e6e6e6"
+         id="path3000" />
+      <path
+         d="m -101.78793,678.30006 0,30.7 8.299997,0 0,-32.7 c 0,-10.19999 -5.400011,-16.5 -15.799997,-16.5 -5.1,0 -11.00001,1.6 -17.1,4.8 l -1.6,-3.8 -5.8,0 0,48.2 8.3,0 0,-38.8 c 4.89999,-2.3 9.5,-3.5 13.3,-3.5 7.79999,0 10.4,3.60001 10.4,11.6"
+         style="font-size:100px;fill:#e6e6e6"
+         id="path3002" />
+      <path
+         d="m -47.376996,706.70006 0,1.4 c 0,3.1 0,5.5 -0.2,6.9 -0.999999,8.69999 -6.60001,14 -16.7,14 -3.499996,0 -7.300004,-1 -11.5,-2.5 l -2.2,5.8 c 3.999996,1.8 10.000005,3.2 14.7,3.2 7.399993,0 13.600004,-2.3 17.5,-6 4.799995,-4.59999 6.7,-9.20001 6.7,-18.2 l 0,-50.5 -5.9,0 -1,2.8 -2.3,-1 c -3.999996,-1.8 -7.800003,-2.7 -11.4,-2.7 -2.799997,0 -5.500002,0.5 -8.1,1.6 -8.799991,3.7 -14.5,11.90001 -14.5,24.2 0,6.29999 1.600003,11.20001 4.4,15.3 3.699996,5.4 9.400008,8.9 17.7,8.9 4.799995,0 8.700004,-1 12.8,-3.2 m -26.6,-22.1 c 0,-10.49999 5.000011,-18.1 15.4,-18.1 3.299997,0 7.000004,0.8 11.2,2.5 l 0,31.7 c -3.099997,1.7 -6.600004,2.7 -10.8,2.7 -10.499989,0 -15.8,-8.40001 -15.8,-18.8"
+         style="font-size:100px;fill:#e6e6e6"
+         id="path3004" />
+      <path
+         d="m -10.208246,702.50006 c -6.199994,0 -6.4,-3.2 -6.4,-6.9 l 0,-53.7 -8,0 0,56.6 c 0.1,6.79999 4.100006,11.5 10.4,11.5 4.6999955,0 8.0000019,-1.8 9.7000002,-2.4 l 0,-6.2 c -2.1999978,0.7 -3.8000019,1.1 -5.7000002,1.1"
+         style="font-size:100px;fill:#e6e6e6"
+         id="path3006" />
+      <path
+         d="m 11.816754,691.70006 0,-30.7 -8.2999998,0 0,32.7 c 0,10.19999 5.5000104,16.5 15.8999998,16.5 5.099995,0 10.900006,-1.6 17,-4.8 l 1.6,3.6 5.8,0 0,-48 -8.3,0 0,38.8 c -4.899995,2.3 -9.400004,3.5 -13.2,3.5 -7.799992,0 -10.5,-3.60001 -10.5,-11.6"
+         style="font-size:100px;fill:#e6e6e6"
+         id="path3008" />
+    </g>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;font-family:Cantarell;-inkscape-font-specification:Cantarell"
@@ -138,13 +154,14 @@
     <text
        xml:space="preserve"
        style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#666666;fill-opacity:1;stroke:none;font-family:Cantarell;-inkscape-font-specification:Cantarell"
-       x="229.67647"
-       y="602.14288"
+       x="224.57144"
+       y="596.14288"
        id="text3001"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3003"
-         x="229.67647"
-         y="602.14288">@VERSION@</tspan></text>
+         x="228.39957"
+         y="596.14288"
+         style="font-size:14px">@VERSION@ </tspan></text>
   </g>
 </svg>
