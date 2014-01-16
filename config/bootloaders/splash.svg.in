@@ -61,7 +61,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -85,7 +85,7 @@
     <g
        style="display:inline"
        id="g4573"
-       transform="matrix(0.14403398,0,0,-0.14403398,-1399.1841,2607.5461)"
+       transform="matrix(0.14403398,0,0,-0.14403398,-1397.1841,2613.5461)"
        inkscape:export-filename="/home/konj/Tanglu LOGO/text4548.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -114,37 +114,37 @@
     <text
        xml:space="preserve"
        style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none;font-family:Cantarell;-inkscape-font-specification:Cantarell"
-       x="-249.42856"
-       y="703.00006"
+       x="-247.42856"
+       y="709.00006"
        id="text2991"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan2993"
-         x="-249.42856"
-         y="703.00006"
+         x="-247.42856"
+         y="709.00006"
          style="font-size:100px;fill:#e6e6e6">Tanglu</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;font-family:Cantarell;-inkscape-font-specification:Cantarell"
-       x="-31.142845"
-       y="729.28577"
+       x="-17.142845"
+       y="737.28577"
        id="text2997"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan2999"
-         x="-31.142845"
-         y="729.28577"
+         x="-17.142845"
+         y="737.28577"
          style="font-size:22px">@FLAVOR_PRETTY@</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#666666;fill-opacity:1;stroke:none;font-family:Cantarell;-inkscape-font-specification:Cantarell;text-anchor:end;text-align:end"
-       x="218.88399"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#666666;fill-opacity:1;stroke:none;font-family:Cantarell;-inkscape-font-specification:Cantarell"
+       x="229.67647"
        y="602.14288"
        id="text3001"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3003"
-         x="110.00002"
+         x="229.67647"
          y="602.14288">@VERSION@</tspan></text>
   </g>
 </svg>
