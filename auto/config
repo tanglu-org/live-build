@@ -33,25 +33,28 @@ if [ ! -e "/usr/share/live/build/data/debian-cd/$dist" ]; then
   fi
 fi
 
+# Debian-installer config
+debian_installer_opts="--debian-installer-distribution '$dist'"
+
 case "$arch" in
   amd64)
-    lb_opts="$lb_opts --debian-installer live"
+    debian_installer_opts="$debian_installer_opts --debian-installer live"
   ;;
   i386)
-    lb_opts="$lb_opts --debian-installer live --linux-flavours 686-pae"
+    debian_installer_opts="$debian_installer_opts --debian-installer live --linux-flavours 686-pae"
   ;;
   *)
     echo "WARNING: configuration not tested on arch $arch" >&2
   ;;
 esac
+# NOTE: We currently disable d-i and only use the custom live-installer
+debian_installer_opts="--debian-installer false"
+# add installer opts to lb config call
+lb_opts="$lb_opts $debian_installer_opts"
 
 # create some directories which we will need later
 mkdir -p config/package-lists
 mkdir -p config/includes.chroot
-
-DEBIAN_INSTALLER_CONF="--debian-installer-distribution '$dist'"
-# NOTE: We currently disable d-i and only use the custom live-installer
-DEBIAN_INSTALLER_CONF=""
 
 # configure selected flavor
 case "$FLAVOR" in
@@ -113,6 +116,5 @@ lb config noauto \
     --iso-publisher "Tanglu Project" \
     --iso-volume "Tanglu $dist_version $FLAVOR Live" \
     --image-name tanglu-${FLAVOR,,}-live \
-    $DEBIAN_INSTALLER_CONF \
     $lb_opts \
     "${@}"
