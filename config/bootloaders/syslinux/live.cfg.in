@@ -1,6 +1,10 @@
+label localhdd-boot
+	menu label Boot from first ^HDD
+	menu default
+	localboot 0
+
 label live-@FLAVOUR@
 	menu label ^Try or Install Tanglu (@FLAVOUR@)
-	menu default
 	linux @LINUX@
 	initrd @INITRD@
 	append @APPEND_LIVE@
