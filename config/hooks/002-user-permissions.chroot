@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+
+# fix permissions on live-user directory
+chown -R user:user /home/user
