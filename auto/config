@@ -70,6 +70,9 @@ tanglu-live-installer-slideshow-kde
 tanglu-live-installer
 EOF
     cp -r config/kde-includes.chroot/root config/includes.chroot/root
+    cp -r config/kde-includes.chroot/home config/includes.chroot/home
+    # fix permissions
+    chmod go+rX config/includes.chroot/home
   ;;
   "gnome"|"GNOME")
     FLAVOR="GNOME"

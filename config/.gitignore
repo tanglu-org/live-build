@@ -1,3 +1,4 @@
 .directory
 includes.chroot/root/
+includes.chroot/home/
 package-lists/

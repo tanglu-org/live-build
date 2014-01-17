@@ -1,5 +1,5 @@
 label localhdd-boot
-	menu label Boot from first ^HDD
+	menu label ^Boot from first disk
 	menu default
 	localboot 0
 

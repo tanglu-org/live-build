@@ -1,0 +1,5 @@
+[Favorites]
+FavoriteURLs=/usr/share/applications/firefox.desktop,/usr/share/applications/kde4/systemsettings.desktop,/usr/share/applications/kde4/dolphin.desktop,/usr/share/applications/kde4/ktp-contactlist.desktop,/usr/share/applications/kde4/amarok.desktop,/usr/share/applications/debian-installer-launcher.desktop
+
+[SystemApplications]
+DesktopFiles=/usr/share/applications/kde4/systemsettings.desktop,/usr/share/applications/kde4/apper.desktop,/usr/share/applications/debian-installer-launcher.desktop
