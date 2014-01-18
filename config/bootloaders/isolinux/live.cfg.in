@@ -1,10 +1,6 @@
-label localhdd-boot
-	menu label ^Boot from first disk
-	menu default
-	localboot 0
-
 label live-@FLAVOUR@
-	menu label ^Try or Install Tanglu (@FLAVOUR@)
+	menu label ^Start or Install Tanglu (@FLAVOUR@)
+	menu default
 	linux @LINUX@
 	initrd @INITRD@
 	append @APPEND_LIVE@
@@ -14,3 +10,8 @@ label live-@FLAVOUR@-failsafe
 	linux @LINUX@
 	initrd @INITRD@
 	append @APPEND_LIVE_FAILSAFE@
+
+label hd
+	menu label ^Boot from first hard disk
+	localboot 0x80
+	append -
