@@ -71,6 +71,8 @@ tanglu-live-installer
 EOF
     cp -r config/includes.chroot.kde/root config/includes.chroot/root
     cp -r config/includes.chroot.kde/home config/includes.chroot/home
+    # fix permissions
+    chmod go+rX config/includes.chroot/home
   ;;
   "gnome"|"GNOME")
     FLAVOR="GNOME"
@@ -83,12 +85,9 @@ tanglu-gnome
 tanglu-live-installer-slideshow-gnome
 tanglu-live-installer
 EOF
-    cp -r config/includes.chroot.gnome/home config/includes.chroot/home
+    cp -r config/includes.chroot.gnome/usr config/includes.chroot/usr
   ;;
 esac
-
-# fix permissions
-chmod go+rX config/includes.chroot/home
 
 # create a pretty version name, containing all information
 if [ x"$dist_reltag" = x"" ]; then
