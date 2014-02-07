@@ -11,8 +11,8 @@ arch=$(dpkg --print-architecture)
 # options
 lb_opts=""
 dist="aequorea"
-dist_version="1"
-dist_reltag="BETA3"
+dist_version="1.0"
+dist_reltag="RC"
 
 if [ -z "$FLAVOR" ]; then
   FLAVOR="kde"
@@ -92,8 +92,10 @@ esac
 # create a pretty version name, containing all information
 if [ x"$dist_reltag" = x"" ]; then
   VERSION_PRETTY="$dist_version ($dist)"
+  IMAGE_FILENAME=tanglu-$dist_version-${FLAVOR,,}-live
 else
   VERSION_PRETTY="$dist_version [$dist_reltag] ($dist)"
+  IMAGE_FILENAME=tanglu-$dist_version-$dist_reltag-${FLAVOR,,}-live
 fi
 
 # update our splash screen
@@ -119,6 +121,6 @@ lb config noauto \
     --iso-application "Tanglu GNU/Linux" \
     --iso-publisher "Tanglu Project" \
     --iso-volume "Tanglu $dist_version $FLAVOR Live" \
-    --image-name tanglu-${FLAVOR,,}-live \
+    --image-name $IMAGE_FILENAME \
     $lb_opts \
     "${@}"
