@@ -13,6 +13,7 @@ lb_opts=""
 dist="aequorea"
 dist_version="1.0"
 dist_reltag="RC"
+snapshot_build=no
 
 if [ -z "$FLAVOR" ]; then
   FLAVOR="kde"
@@ -98,6 +99,12 @@ else
   IMAGE_FILENAME=tanglu-$dist_version-$dist_reltag-${FLAVOR,,}-live
 fi
 
+# we use different image names for snapshot builds and don't include update sources
+if [ x"$snapshot_build"x = x"yes"x ]; then
+  IMAGE_FILENAME=tanglu-$dist-${FLAVOR,,}-live
+  lb_opts="$lb_opts --security false --updates false"
+fi
+
 # update our splash screen
 sed -e s/@FLAVOR_PRETTY@/"$FLAVOR_PRETTY"/g config/bootloaders/splash.svg.in > config/bootloaders/splash.svg
 sed -i s/@VERSION@/"$VERSION_PRETTY"/g config/bootloaders/splash.svg
@@ -113,8 +120,6 @@ lb config noauto \
     --keyring-packages tanglu-archive-keyring \
     --build-with-chroot false \
     --bootloader syslinux \
-    --security false \
-    --updates false \
     --firmware-binary true \
     --firmware-chroot true \
     --initsystem systemd \
