@@ -103,6 +103,8 @@ fi
 if [ x"$snapshot_build"x = x"yes"x ]; then
   IMAGE_FILENAME=tanglu-$dist-${FLAVOR,,}-live
   lb_opts="$lb_opts --security false --updates false"
+else
+  lb_opts="$lb_opts --security false --updates true"
 fi
 
 # update our splash screen
