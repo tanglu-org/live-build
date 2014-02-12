@@ -1,0 +1,11 @@
+[CheckUpdate]
+autoUpdate=0
+checkUpdatesOnBattery=false
+checkUpdatesOnMobile=false
+distroUpgrade=0
+installUpdatesOnBattery=false
+installUpdatesOnMobile=false
+interval=0
+
+[FilterMenu]
+FilterNative=true
