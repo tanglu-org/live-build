@@ -1,0 +1,14 @@
+scripts to build the daily image set for tanglu
+
+All script need to be run as root.
+Requires: debootstrap and tanglu-archive-keyring from tanglu
+
+To set the environment up run
+
+# ./bootstrap.sh /path/to/workdir
+
+you can then go the the workdir and run
+
+# ./build_images.sh
+
+you will find the built images in ./cdimage/$current_date
