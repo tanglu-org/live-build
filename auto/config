@@ -116,10 +116,10 @@ mv -f config/bootloaders/splash.svg config/bootloaders/syslinux/
 # FIXME: should be fixed in the live-build autodetection
 case "$arch" in
   amd64)
-    kernel_flavour="-amd64"
+    kernel_flavour="amd64"
   ;;
   i386)
-    kernel_flavour="-686-pae"
+    kernel_flavour="686-pae"
   ;;
   *)
     echo "WARNING: configuration not tested on arch $arch" >&2
