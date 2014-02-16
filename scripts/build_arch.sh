@@ -34,6 +34,9 @@ sh install-prerequisites.sh
 
 #export snapshot_build=yes
 
+# remove the live-build cache if it's there
+rm -rf cache/
+
 for flavor in {kde,gnome}; do
 
 	lb clean
@@ -50,6 +53,9 @@ for flavor in {kde,gnome}; do
 done
 
 lb clean
+
+# clean up the cache as we won't be reusing it next time
+rm -rf cache
 
 umount /proc
 umount /dev/pts
