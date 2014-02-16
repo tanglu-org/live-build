@@ -132,6 +132,7 @@ lb config noauto \
     --archive-areas "main contrib non-free" \
     --mirror-bootstrap http://archive.tanglu.org/tanglu \
     --mirror-binary http://archive.tanglu.org/tanglu \
+    --apt-source-archives false \
     --keyring-packages tanglu-archive-keyring \
     --build-with-chroot false \
     --bootloader syslinux \
