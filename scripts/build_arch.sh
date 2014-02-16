@@ -7,8 +7,8 @@ fi
 
 export LANG=C LANGUAGE=C LC_ALL=C
 
-mount -t proc proc /proc
-mount -t devpts devpts /dev/pts
+mount -t proc proc /proc || true
+mount -t devpts devpts /dev/pts || true
 
 echo "[$(date +%Y-%m-%d\ %H:%M:%S)] ===== UPDATING CHROOT"
 
@@ -57,5 +57,5 @@ lb clean
 # clean up the cache as we won't be reusing it next time
 rm -rf cache
 
-umount /proc
-umount /dev/pts
+umount /proc || true
+umount /dev/pts || true
