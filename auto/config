@@ -113,6 +113,19 @@ sed -i s/@VERSION@/"$VERSION_PRETTY"/g config/bootloaders/splash.svg
 cp -f config/bootloaders/splash.svg config/bootloaders/isolinux/
 mv -f config/bootloaders/splash.svg config/bootloaders/syslinux/
 
+# FIXME: should be fixed in the live-build autodetection
+case "$arch" in
+  amd64)
+    kernel_flavour="-amd64"
+  ;;
+  i386)
+    kernel_flavour="-686-pae"
+  ;;
+  *)
+    echo "WARNING: configuration not tested on arch $arch" >&2
+  ;;
+esac
+
 lb config noauto \
     --distribution "$dist" \
     --binary-images iso-hybrid \
@@ -129,5 +142,6 @@ lb config noauto \
     --iso-publisher "Tanglu Project" \
     --iso-volume "Tanglu $dist_version $FLAVOR Live" \
     --image-name $IMAGE_FILENAME \
+    --linux-flavours $kernel_flavour \
     $lb_opts \
     "${@}"
