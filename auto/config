@@ -134,7 +134,6 @@ lb config noauto \
     --mirror-binary http://archive.tanglu.org/tanglu \
     --apt-source-archives false \
     --keyring-packages tanglu-archive-keyring \
-    --build-with-chroot false \
     --bootloader syslinux \
     --firmware-binary true \
     --firmware-chroot true \
