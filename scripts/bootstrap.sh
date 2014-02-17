@@ -22,7 +22,7 @@ workdir=$1
 [ -e $workdir ] || mkdir -p $workdir
 
 for arch in {i386,amd64}; do
-    echo "[$(date +%Y-%m-%d\ %H:%M:%S)] ===== BUILDING $arch CHROOT..."
+    echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== BUILDING $arch CHROOT..."
     debootstrap --arch=$arch $chroot_release $workdir/tanglu-$arch
     cp ./build_arch.sh $workdir/tanglu-$arch/
 done

@@ -10,13 +10,13 @@ export LANG=C LANGUAGE=C LC_ALL=C
 mount -t proc proc /proc || true
 mount -t devpts devpts /dev/pts || true
 
-echo "[$(date +%Y-%m-%d\ %H:%M:%S)] ===== UPDATING CHROOT"
+echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== UPDATING CHROOT"
 
 apt-get update
 apt-get check
 apt-get -y --force-yes dist-upgrade
 
-echo "[$(date +%Y-%m-%d\ %H:%M:%S)] ===== UPDATING IMAGE CONFIG"
+echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== UPDATING IMAGE CONFIG"
 
 [ -e /usr/bin/git ] || apt-get -y --force-yes install git
 
@@ -43,7 +43,7 @@ for flavor in {kde,gnome}; do
 
 	export FLAVOR=$flavor
 
-        echo "[$(date +%Y-%m-%d\ %H:%M:%S)] ===== STARTING IMAGE BUILD - FLAVOR: $FLAVOR "
+        echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== STARTING IMAGE BUILD - FLAVOR: $FLAVOR "
 
 	lb config
 	lb build
