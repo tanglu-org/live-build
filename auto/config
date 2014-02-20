@@ -1,9 +1,15 @@
 #!/bin/bash -e
 
 # some fancy colors
-RED=$(tput setaf 1)
-BRIGHT=$(tput bold)
-NORMAL=$(tput sgr0)
+if [ -n "$TERM" ]; then
+    RED=$(tput setaf 1)
+    BRIGHT=$(tput bold)
+    NORMAL=$(tput sgr0)
+else
+    RED=
+    BRIGHT=
+    NORMAL=
+fi
 
 # current architecture
 arch=$(dpkg --print-architecture)
