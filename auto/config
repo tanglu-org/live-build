@@ -18,7 +18,7 @@ arch=$(dpkg --print-architecture)
 lb_opts=""
 dist="aequorea"
 dist_version="1.0"
-dist_reltag="RC3"
+dist_reltag=""
 snapshot_build=no
 
 if [ -z "$FLAVOR" ]; then
