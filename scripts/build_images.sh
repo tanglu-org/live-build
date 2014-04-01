@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+. ./build_config
+
 if [ ! -w /etc ]; then
     echo "this script needs to be run as root!"
     exit 1

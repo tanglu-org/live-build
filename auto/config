@@ -16,10 +16,10 @@ arch=$(dpkg --print-architecture)
 
 # options
 lb_opts=""
-dist="aequorea"
-dist_version="1.0"
+dist="bartholomea"
+dist_version="1.80"
 dist_reltag=""
-snapshot_build=no
+#snapshot_build=no
 
 if [ -z "$FLAVOR" ]; then
   FLAVOR="kde"

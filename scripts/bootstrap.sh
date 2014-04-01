@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-chroot_release=aequorea
+chroot_release=bartholomea
 
 if [ ! -e /usr/share/debootstrap/scripts/$chroot_release ]; then
     echo "Your version of debootstrap does not support tanglu!"
@@ -28,6 +28,7 @@ for arch in {i386,amd64}; do
 done
 
 cp ./build_images.sh $workdir/
+cp ./build_config $workdir/
 
 echo "setup done, you can now build the images by going to the work directory"
 echo "and running 'sudo ./build_images.sh'"
