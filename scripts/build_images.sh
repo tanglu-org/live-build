@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 if [ ! -w /etc ]; then
     echo "this script needs to be run as root!"
