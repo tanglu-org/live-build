@@ -20,7 +20,8 @@ cd $workdir
 
 date=$(date -u +%Y%m%d)
 
-mv buildlog $buildlogdir/daily-live.${date}.txt
+gzip -9 buildlog
+mv buildlog.gz $buildlogdir/daily-live.${date}.txt.gz
 # chown cdimage:cdimage cdimage/$date
 mv cdimage/$date $targetdir
 cd $targetdir
