@@ -1,5 +1,12 @@
 #!/bin/bash
 
+wipe_cache()
+{
+    for dir in $(ls cache/ | grep -P '^(?!packages*)(.*)$'); do
+        rm -rf cache/$dir
+    done
+}
+
 if [ ! -w /etc ]; then
     echo "this script needs to be run as root!"
     exit 1
@@ -34,8 +41,8 @@ sh install-prerequisites.sh
 
 #export snapshot_build=yes
 
-# remove the live-build cache if it's there
-rm -rf cache/
+# remove the live-build cache if it's there but keep the packages
+wipe_cache
 
 for flavor in {kde,gnome}; do
 
@@ -55,7 +62,7 @@ done
 lb clean
 
 # clean up the cache as we won't be reusing it next time
-rm -rf cache
+wipe_cache
 
 umount /proc || true
 umount /dev/pts || true

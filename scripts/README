@@ -1,6 +1,6 @@
 scripts to build the daily image set for tanglu
 
-All script need to be run as root.
+All scripts need to be run as root.
 Requires: debootstrap and tanglu-archive-keyring from tanglu
 
 To set the environment up run
