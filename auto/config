@@ -109,10 +109,8 @@ fi
 if [ x"$snapshot_build"x = x"yes"x ]; then
   IMAGE_FILENAME=tanglu-$dist-${FLAVOR,,}-live
   dist_version=$dist
-  lb_opts="$lb_opts --security false --updates false"
-else
-  lb_opts="$lb_opts --security false --updates true"
 fi
+lb_opts="$lb_opts --security false --updates true"
 
 # update our splash screen
 sed -e s/@FLAVOR_PRETTY@/"$FLAVOR_PRETTY"/g config/bootloaders/splash.svg.in > config/bootloaders/splash.svg
