@@ -25,6 +25,7 @@ for arch in {i386,amd64}; do
     echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== BUILDING $arch CHROOT..."
     debootstrap --arch=$arch $chroot_release $workdir/tanglu-$arch
     cp ./build_arch.sh $workdir/tanglu-$arch/
+    echo 'APT::Get::AutomaticRemove "true";' >> $workdir/tanglu-$arch/etc/apt/apt.conf
 done
 
 cp ./build_images.sh $workdir/
