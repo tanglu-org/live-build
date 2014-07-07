@@ -30,7 +30,7 @@ cd cdimage/$date
 
 echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== GENERATING CHECKSUMS"
 
-md5sum *.iso > MD5SUM
-sha256sum *.iso > SHA256SUM
+md5sum *.iso | tee MD5SUM
+sha256sum *.iso | tee SHA256SUM
 
 echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== IMAGE BUILD FINISHED"
