@@ -95,6 +95,13 @@ EOF
   ;;
 esac
 
+# include the live tools
+cat > config/package-lists/live.list.chroot <<EOF
+live-boot
+live-config
+live-config-systemd
+EOF
+
 # create a pretty version name, containing all information
 if [ x"$dist_reltag" = x"" ]; then
   VERSION_PRETTY="$dist_version ($dist)"
