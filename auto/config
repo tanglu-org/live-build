@@ -60,6 +60,7 @@ debian_installer_opts="--debian-installer false"
 lb_opts="$lb_opts $debian_installer_opts"
 
 # create some directories which we will need later
+mkdir -p config/package-lists
 mkdir -p config/includes.chroot
 
 # configure selected flavor
