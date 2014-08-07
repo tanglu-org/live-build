@@ -18,8 +18,8 @@ arch=$(dpkg --print-architecture)
 lb_opts=""
 dist="bartholomea"
 dist_version="1.80"
-dist_reltag=""
-#snapshot_build=no
+dist_reltag="Alpha1"
+snapshot_build=yes
 
 if [ -z "$FLAVOR" ]; then
   FLAVOR="kde"
