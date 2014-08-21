@@ -12,6 +12,12 @@ if [ ! -w /etc ]; then
     exit 1
 fi
 
+if [ -z "$1" ]; then
+    echo "no flavor(s) specified!"
+    exit 2
+fi
+flavors=$1
+
 export LANG=C LANGUAGE=C LC_ALL=C
 
 mount -t proc proc /proc || true
@@ -39,12 +45,10 @@ git reset --hard origin/master
 
 sh install-prerequisites.sh
 
-#export snapshot_build=yes
-
 # remove the live-build cache if it's there but keep the packages
 wipe_cache
 
-for flavor in {kde,gnome}; do
+for flavor in $flavors; do
 
 	lb clean
 

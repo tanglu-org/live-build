@@ -1,3 +1,5 @@
 ## local image build config
 
 #export snapshot_build=yes
+architectures='amd64 i386'
+flavors='kde gnome'

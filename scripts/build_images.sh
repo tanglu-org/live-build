@@ -18,9 +18,9 @@ date=$(date -u +%Y%m%d)
 [ -e cdimage/$date ] || mkdir -p cdimage/$date
 
 
-for arch in {amd64,i386}; do
+for arch in $architectures; do
     echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== STARTING IMAGE BUILD FOR $arch"
-    chroot ./tanglu-$arch/ /build_arch.sh
+    chroot ./tanglu-$arch/ /build_arch.sh "$flavors"
     echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== DONE BUILDING IMAGES FOR $arch"
     mv tanglu-$arch/tmp/cdimage/tanglu-* cdimage/$date/
 done
