@@ -2,6 +2,7 @@
 
 wipe_cache()
 {
+    echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== CACHE CLEANUP"
     for dir in $(ls cache/ | grep -P '^(?!packages*)(.*)$'); do
         rm -rf cache/$dir
     done
@@ -67,6 +68,9 @@ lb clean
 
 # clean up the cache as we won't be reusing it next time
 wipe_cache
+
+echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== EXPIRE PACKAGE CACHE"
+find cache/ -atime +1 -exec rm -vf -- '{}' \;
 
 umount /proc || true
 umount /dev/pts || true
