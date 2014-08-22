@@ -29,6 +29,7 @@ echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== UPDATING CHROOT"
 apt-get update
 apt-get check
 apt-get -y --force-yes dist-upgrade
+apt-get -y autoremove
 
 echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== UPDATING IMAGE CONFIG"
 
