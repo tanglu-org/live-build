@@ -44,8 +44,8 @@ Config ()
         fi
 
         # autologin
-        sed -i -r -e "s|^#.*AutoRelogin=.*\$|AutoRelogin=true|" \
-                  -e "s|^#.*AutoUser=.*\$|AutoUser=${LIVE_USERNAME}|" \
+        sed -i -r -e "s|^AutoRelogin=.*\$|AutoRelogin=true|" \
+                  -e "s|^AutoUser=.*\$|AutoUser=${LIVE_USERNAME}|" \
         /etc/sddm.conf
 
         # Avoid xinit
