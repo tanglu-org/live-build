@@ -54,8 +54,8 @@ case "$arch" in
     echo "WARNING: configuration not tested on arch $arch" >&2
   ;;
 esac
-# NOTE: We currently disable d-i and only use the custom live-installer
-debian_installer_opts="--debian-installer false"
+# NOTE: We currently test d-i again
+debian_installer_opts="--debian-installer true"
 # add installer opts to lb config call
 lb_opts="$lb_opts $debian_installer_opts"
 
