@@ -55,7 +55,7 @@ case "$arch" in
   ;;
 esac
 # NOTE: We currently test d-i again
-debian_installer_opts="--debian-installer true"
+#debian_installer_opts="--debian-installer false"
 # add installer opts to lb config call
 lb_opts="$lb_opts $debian_installer_opts"
 
