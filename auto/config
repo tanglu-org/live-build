@@ -41,7 +41,7 @@ if [ ! -e "/usr/share/live/build/data/debian-cd/$dist" ]; then
 fi
 
 # Debian-installer config
-debian_installer_opts="--debian-installer-distribution '$dist'"
+debian_installer_opts="--debian-installer-distribution $dist"
 
 case "$arch" in
   amd64)
