@@ -6,7 +6,7 @@ label live-@FLAVOUR@
 	append @APPEND_LIVE@
 
 label live-@FLAVOUR@-failsafe
-	menu label Tanglu Live (@FLAVOUR@ ^failsafe)
+	menu label Start or Install Tanglu (@FLAVOUR@ ^failsafe)
 	linux @LINUX@
 	initrd @INITRD@
 	append @APPEND_LIVE_FAILSAFE@
