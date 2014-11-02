@@ -5,6 +5,12 @@ label live-@FLAVOUR@
 	initrd @INITRD@
 	append @APPEND_LIVE@
 
+label installgui
+	menu label ^Install Tanglu (@FLAVOUR@)
+	linux /install/gtk/vmlinuz
+	initrd /install/gtk/initrd.gz
+	append video=vesa:ywrap,mtrr vga=788 @APPEND_INSTALL@ -- quiet
+
 label live-@FLAVOUR@-failsafe
 	menu label Start or Install Tanglu (@FLAVOUR@ ^failsafe)
 	linux @LINUX@
