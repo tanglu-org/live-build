@@ -17,8 +17,8 @@ arch=$(dpkg --print-architecture)
 # options
 lb_opts=""
 dist="bartholomea"
-dist_version="1.80"
-dist_reltag="Beta1"
+dist_version="1.90"
+dist_reltag="Beta2"
 #snapshot_build=yes
 
 if [ -z "$FLAVOR" ]; then
