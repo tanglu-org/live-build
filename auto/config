@@ -142,7 +142,9 @@ lb config noauto \
     --binary-images iso-hybrid \
     --archive-areas "main contrib non-free" \
     --mirror-bootstrap http://archive.tanglu.org/tanglu \
+    --parent-mirror-bootstrap http://archive.tanglu.org/tanglu \
     --mirror-binary http://archive.tanglu.org/tanglu \
+    --parent-mirror-binary http://archive.tanglu.org/tanglu \
     --apt-source-archives false \
     --keyring-packages tanglu-archive-keyring \
     --bootloader syslinux \
