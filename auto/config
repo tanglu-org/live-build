@@ -138,6 +138,7 @@ esac
 
 lb config noauto \
     --distribution "$dist" \
+    --mode tanglu \
     --binary-images iso-hybrid \
     --archive-areas "main contrib non-free" \
     --mirror-bootstrap http://archive.tanglu.org/tanglu \
