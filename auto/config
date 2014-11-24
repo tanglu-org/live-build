@@ -71,7 +71,6 @@ case "$FLAVOR" in
 tanglu-standard
 grub2
 tanglu-kde
-tanglu-live-installer-slideshow-kde
 tanglu-live-installer
 EOF
     cp -r config/includes.chroot.kde/root config/includes.chroot/root
@@ -87,7 +86,6 @@ EOF
 tanglu-standard
 grub2
 tanglu-gnome
-tanglu-live-installer-slideshow-gnome
 tanglu-live-installer
 EOF
     cp -r config/includes.chroot.gnome/usr config/includes.chroot/usr
