@@ -2,4 +2,4 @@
 
 #export snapshot_build=yes
 architectures='amd64 i386'
-flavors='kde gnome'
+flavors='kde gnome core'
