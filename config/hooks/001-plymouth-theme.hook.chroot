@@ -1,8 +1,15 @@
 #!/bin/sh
 set -e
 
-if [ -e /usr/sbin/plymouth-set-default-theme ] && [ -e /usr/share/plymouth/themes/tanglu-logo/tanglu-logo.plymouth ]
+if [ -e /usr/sbin/plymouth-set-default-theme ]
 then
-	plymouth-set-default-theme tanglu-logo
+	if [ -e /usr/bin/X11 ] && [ -e /usr/share/plymouth/themes/tanglu-logo/tanglu-logo.plymouth ]
+	then
+		# likely a GUI configuration, we want the nice Tanglu splash
+		plymouth-set-default-theme tanglu-logo
+	else
+		# likely a server/non-gui setup. We want to be verbose and show details.
+		plymouth-set-default-theme details
+	fi
 	/usr/sbin/update-initramfs -u
 fi
