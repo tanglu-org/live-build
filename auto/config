@@ -90,6 +90,15 @@ tanglu-live-installer
 EOF
     cp -r config/includes.chroot.gnome/usr config/includes.chroot/usr
   ;;
+  "core")
+    FLAVOR="Core"
+    FLAVOR_PRETTY="Core"
+    # create package config
+    cat > config/package-lists/desktop.list.chroot <<EOF
+tanglu-standard
+grub2
+EOF
+  ;;
 esac
 
 # include the live tools
@@ -98,6 +107,15 @@ live-boot
 live-config
 live-config-systemd
 EOF
+
+# set the right live-cd bootmenu for this flavor
+if [ x"${FLAVOR,,}" = x"core" ]; then
+  cp -f config/bootloaders/live.cfg.core.in config/bootloaders/isolinux/live.cfg.in
+  cp -f config/bootloaders/live.cfg.core.in config/bootloaders/syslinux/live.cfg.in
+else
+  cp -f config/bootloaders/live.cfg.in config/bootloaders/isolinux/
+  cp -f config/bootloaders/live.cfg.in config/bootloaders/syslinux/
+fi
 
 # create a pretty version name, containing all information
 if [ x"$dist_reltag" = x"" ]; then
