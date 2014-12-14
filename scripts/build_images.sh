@@ -9,10 +9,12 @@ fi
 
 export LANG=C LANGUAGE=C LC_ALL=C
 
-if [[ ! -e tanglu-amd64 || ! -e tanglu-i386 ]]; then
-    echo "either tanglu-amd64 or tanglu-i386 chroot missing!"
-    exit 1
-fi
+for arch in $architectures; do
+    if [[ ! -e tanglu-$arch ]]; then
+        echo "no tanglu-$arch chroot found! Aborting"
+        exit 1
+    fi
+done
 
 date=$(date -u +%Y%m%d)
 [ -e cdimage/$date ] || mkdir -p cdimage/$date
