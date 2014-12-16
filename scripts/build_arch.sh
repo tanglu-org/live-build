@@ -50,6 +50,21 @@ sh install-prerequisites.sh
 # remove the live-build cache if it's there but keep the packages
 wipe_cache
 
+echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== EXPIRE PACKAGE CACHE PASS 1"
+apt-get update && {
+	# wipe undownloadable packages
+	cp -f cache/packages.binary/* /var/cache/apt/archives/
+	rm -rf cache/packages.binary/*
+	rm -rf cache/packages.chroot/*
+	apt-get autoclean
+	cp -f /var/cache/apt/archives/* cache/packages.binary/
+
+	# restore hard links
+	for file in cache/packages.binary/*; do
+		ln $file cache/packages.chroot/
+	done
+}
+
 for flavor in $flavors; do
 
 	lb clean
@@ -70,7 +85,7 @@ lb clean
 # clean up the cache as we won't be reusing it next time
 wipe_cache
 
-echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== EXPIRE PACKAGE CACHE"
+echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== EXPIRE PACKAGE CACHE PASS 2"
 find cache/ -atime +1 -exec rm -vf -- '{}' \;
 
 umount /proc || true
