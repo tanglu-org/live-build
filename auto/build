@@ -1,5 +1,5 @@
 #!/bin/sh
 
-export RELEASE_bartholomea="2.0"
+export RELEASE_chromodoris="3.0"
 
 lb build noauto "${@}" 2>&1 | tee build.log

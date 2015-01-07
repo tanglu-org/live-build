@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-chroot_release=bartholomea
+chroot_release=chromodoris
 
 if [ ! -e /usr/share/debootstrap/scripts/$chroot_release ]; then
     echo "Your version of debootstrap does not support tanglu!"
