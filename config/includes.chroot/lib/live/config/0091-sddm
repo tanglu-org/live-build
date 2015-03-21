@@ -46,6 +46,8 @@ Config ()
         # autologin
         sed -i -r -e "s|^User=.*\$|User=${LIVE_USERNAME}|" \
         /etc/sddm.conf
+        sed -i -r -e "s|^Session=.*\$|Session=plasma.desktop|" \
+        /etc/sddm.conf
 
         # NOTE: We don't set relogin to true, because SDDM is currently crashing in that case.
         # To re-enable this, use -e "s|^Relogin=.*\$|Relogin=true|" \
