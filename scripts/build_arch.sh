@@ -26,6 +26,7 @@ mount -t devpts devpts /dev/pts || true
 
 echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== UPDATING CHROOT"
 
+export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get check
 apt-get -y --force-yes dist-upgrade
