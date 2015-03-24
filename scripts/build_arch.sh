@@ -40,7 +40,7 @@ echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== UPDATING IMAGE CONFIG"
 
 if [ ! -e /tmp/live-build/ ]; then
 	cd /tmp
-	git clone git://gitorious.org/tanglu/live-build.git
+	git clone https://gitlab.com/tanglu/live-build.git
 fi
 cd /tmp/live-build
 git fetch
