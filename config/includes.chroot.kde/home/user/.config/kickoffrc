@@ -3,3 +3,9 @@ FavoriteURLs=/usr/share/applications/firefox.desktop,/usr/share/applications/sys
 
 [SystemApplications]
 DesktopFiles=/usr/share/applications/systemsettings.desktop,/usr/share/applications/tanglu-live-installer.desktop
+
+[KRunner]
+loadAll=false
+
+[KRunner][PlasmaRunnerManager]
+pluginWhiteList=places,shell,services,bookmarks,recentdocuments,locations,baloosearch
