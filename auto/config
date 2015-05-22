@@ -71,8 +71,8 @@ case "$FLAVOR" in
 tanglu-standard
 grub2
 tanglu-kde
-calamares
 calamares-branding-tanglu-kde
+calamares
 EOF
     cp -r config/includes.chroot.kde/root config/includes.chroot/root
     cp -r config/includes.chroot.kde/home config/includes.chroot/home
@@ -87,8 +87,8 @@ EOF
 tanglu-standard
 grub2
 tanglu-gnome
-calamares
 calamares-branding-tanglu-gnome
+calamares
 EOF
     cp -r config/includes.chroot.gnome/usr config/includes.chroot/usr
   ;;
