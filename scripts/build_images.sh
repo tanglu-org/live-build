@@ -22,7 +22,19 @@ date=$(date -u +%Y%m%d)
 
 for arch in $architectures; do
     echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== STARTING IMAGE BUILD FOR $arch"
-    chroot ./tanglu-$arch/ /build_arch.sh "$flavors"
+
+    chroot ./tanglu-$arch/ build_arch.sh prebuild
+    chroot ./tanglu-$arch/ build_arch.sh wipe_cache
+    chroot ./tanglu-$arch/ build_arch.sh expire_cache_prebuild
+    chroot ./tanglu-$arch/ build_arch.sh bootstrap
+    for flavor in $flavors; do
+        chroot ./tanglu-$arch/ /build_arch.sh runbuild $flavor
+    done
+
+    chroot ./tanglu-$arch/ build_arch.sh wipe_cache
+    chroot ./tanglu-$arch/ build_arch.sh expire_cache_postbuild
+    chroot ./tanglu-$arch/ build_arch.sh postbuild
+
     echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== DONE BUILDING IMAGES FOR $arch"
     mv tanglu-$arch/tmp/cdimage/tanglu-* cdimage/$date/
 done
