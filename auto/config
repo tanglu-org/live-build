@@ -18,7 +18,7 @@ arch=$(dpkg --print-architecture)
 lb_opts=""
 dist="chromodoris"
 dist_version="3.0"
-dist_reltag="RC2"
+dist_reltag=""
 #snapshot_build=yes
 
 if [ -z "$FLAVOR" ]; then
