@@ -86,7 +86,7 @@ runbuild()
 
     lb clean
 
-    export FLAVOR=$2
+    export FLAVOR=$1
 
     echo "[$(date -u +%Y-%m-%d\ %H:%M:%S)] ===== STARTING IMAGE BUILD - FLAVOR: $FLAVOR "
 
@@ -113,7 +113,9 @@ if [ ! -w /etc ]; then
 fi
 
 if [ "x$(type -t $1)" = 'xfunction' ]; then
-    $1
+    _command=$1
+    shift
+    $_command "$@"
 else
     echo "unkown command: $1"
 fi
