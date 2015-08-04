@@ -104,7 +104,7 @@ bootstrap()
     # we only do the bootstrap, so the configuration doesn't matter
     lb config
 
-    lb debootstrap
+    lb bootstrap
 }
 
 if [ ! -w /etc ]; then
