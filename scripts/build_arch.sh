@@ -109,11 +109,6 @@ if [ ! -w /etc ]; then
     exit 1
 fi
 
-if [ -z "$1" ]; then
-    echo "no flavor(s) specified!"
-    exit 2
-fi
-
 if [ "x$(type -t $1)" = 'xfunction' ]; then
     $1
 else
