@@ -114,19 +114,3 @@ if [ "x$(type -t $1)" = 'xfunction' ]; then
 else
     echo "unkown command: $1"
 fi
-
-#prebuild
-
-# remove the live-build cache if it's there but keep the packages
-#wipe_cache
-
-#expire_cache_prebuild
-
-#runbuild
-
-# clean up the cache as we won't be reusing it next time
-#wipe_cache
-
-#expire_cache_postbuild
-
-#postbuild
