@@ -100,8 +100,11 @@ runbuild()
 bootstrap()
 {
     cd $_lbdir
+
+    # we only do the bootstrap, so the configuration doesn't matter
+    lb config
+
     lb debootstrap
-    true
 }
 
 if [ ! -w /etc ]; then
