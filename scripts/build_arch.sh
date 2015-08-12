@@ -61,7 +61,7 @@ prebuild()
 
     if [ ! -e $_lbdir ]; then
             cd /tmp
-            git clone https://gitlab.com/tanglu/live-build.git
+            git clone https://github.com/tanglu-org/live-build.git
     fi
     cd $_lbdir
     git fetch
