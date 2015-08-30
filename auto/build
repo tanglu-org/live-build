@@ -1,5 +1,6 @@
 #!/bin/sh
 
 export RELEASE_chromodoris="3.0"
+export RELEASE_dasyatis="4.0"
 
 lb build noauto "${@}" 2>&1 | tee build.log

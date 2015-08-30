@@ -16,9 +16,9 @@ arch=$(dpkg --print-architecture)
 
 # options
 lb_opts=""
-dist="chromodoris"
-dist_version="3.0"
-dist_reltag=""
+dist="dasyatis"
+dist_version="4.0"
+dist_reltag="pre-alpha"
 #snapshot_build=yes
 
 if [ -z "$FLAVOR" ]; then
