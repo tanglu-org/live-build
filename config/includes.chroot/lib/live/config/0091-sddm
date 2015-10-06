@@ -2,7 +2,7 @@
 
 ## live-config(7) - System Configuration Components
 ## Copyright (C) 2006-2013 Daniel Baumann <mail@daniel-baumann.ch>
-##                    2014 Matthias Klumpp <mak@debian.org>
+##               2014-2015 Matthias Klumpp <mak@debian.org>
 ##
 ## This program comes with ABSOLUTELY NO WARRANTY; for details see COPYING.
 ## This is free software, and you are welcome to redistribute it
@@ -13,50 +13,51 @@ set -e
 
 Cmdline ()
 {
-        # Reading kernel command line
-        for _PARAMETER in ${LIVE_CONFIG_CMDLINE}
-        do
-                case "${_PARAMETER}" in
-                        live-config.username=*|username=*)
-                                LIVE_USERNAME="${_PARAMETER#*username=}"
-                                ;;
-                esac
-        done
+    # Reading kernel command line
+    for _PARAMETER in ${LIVE_CONFIG_CMDLINE}
+    do
+        case "${_PARAMETER}" in
+            live-config.username=*|username=*)
+                LIVE_USERNAME="${_PARAMETER#*username=}"
+                ;;
+        esac
+    done
 }
 
 Init ()
 {
-        # Checking if package is installed or already configured
-        if [ ! -e /var/lib/dpkg/info/sddm.list ] || \
-           [ -e /var/lib/live/config/sddm ]
-        then
-                exit 0
-        fi
+    # Checking if package is installed or already configured
+    if [ ! -e /var/lib/dpkg/info/sddm.list ] || \
+       [ -e /var/lib/live/config/sddm ]
+    then
+        exit 0
+    fi
 
-        echo -n " sddm"
+    echo -n " sddm"
 }
 
 Config ()
 {
-        if [ ! -e /etc/sddm.conf ]
-        then
-                exit 0
-        fi
 
-        # autologin
-        sed -i -r -e "s|^User=.*\$|User=${LIVE_USERNAME}|" \
-        /etc/sddm.conf
-        sed -i -r -e "s|^Session=.*\$|Session=plasma.desktop|" \
-        /etc/sddm.conf
+    # configure SDDM for autologin on live-cd
+    cat > "/etc/sddm.conf" <<EOF
+[General]
 
-        # NOTE: We don't set relogin to true, because SDDM is currently crashing in that case.
-        # To re-enable this, use -e "s|^Relogin=.*\$|Relogin=true|" \
+[Theme]
+CursorTheme=breeze_cursors
+FacesDir=/usr/share/sddm/faces/
 
-        # Avoid xinit
-        touch /var/lib/live/config/xinit
+[Autologin]
+Session=plasma.desktop
+User=${LIVE_USERNAME}
+Relogin=true
+EOF
 
-        # Creating state file
-        touch /var/lib/live/config/sddm
+    # Avoid xinit
+    touch /var/lib/live/config/xinit
+
+    # Creating state file
+    touch /var/lib/live/config/sddm
 }
 
 Cmdline
