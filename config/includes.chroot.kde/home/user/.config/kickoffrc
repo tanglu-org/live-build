@@ -1,5 +1,5 @@
 [Favorites]
-FavoriteURLs=/usr/share/applications/firefox.desktop,/usr/share/applications/systemsettings.desktop,/usr/share/applications/kde4/dolphin.desktop,/usr/share/applications/clementine.desktop,/usr/share/applications/tanglu-live-installer.desktop
+FavoriteURLs=/usr/share/applications/firefox.desktop,/usr/share/applications/systemsettings.desktop,/usr/share/applications/org.kde.dolphin.desktop,/usr/share/applications/clementine.desktop,/usr/share/applications/tanglu-live-installer.desktop
 
 [SystemApplications]
 DesktopFiles=/usr/share/applications/systemsettings.desktop,/usr/share/applications/tanglu-live-installer.desktop
