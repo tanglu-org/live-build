@@ -36,7 +36,7 @@ mkdir -p $buildlogdir/daily-live-$version
 gzip -9 buildlog.*.txt
 mv buildlog.*.txt.gz $buildlogdir/daily-live-$version/
 # chown cdimage:cdimage cdimage/$version
-mv cdimage/$version $targetdir
+mv cdimage/$date $targetdir/$version
 cd $targetdir
 rm -f current
 ln -sf $version current
