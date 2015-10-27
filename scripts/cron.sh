@@ -25,7 +25,7 @@ if [ -e $targetdir/$date ]; then
     suffix=1
 
     while [ -e $targetdir/${date}.$suffix ]; do
-        $suffix = $((suffix + 1));
+        suffix=$((suffix + 1));
     done
 
     version=${date}.$suffix
