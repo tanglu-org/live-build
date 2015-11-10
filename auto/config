@@ -105,9 +105,8 @@ esac
 
 # include the live tools
 cat > config/package-lists/live.list.chroot <<EOF
-live-boot
-live-config
-live-config-systemd
+gfxboot-theme-tanglu
+casper
 EOF
 
 # set the right live-cd bootmenu for this flavor
@@ -171,6 +170,7 @@ lb config noauto \
     --firmware-binary true \
     --firmware-chroot true \
     --initsystem systemd \
+    --initramfs casper \
     --iso-application "Tanglu GNU/Linux" \
     --iso-publisher "Tanglu Project" \
     --iso-volume "Tanglu $dist_version $FLAVOR Live" \
