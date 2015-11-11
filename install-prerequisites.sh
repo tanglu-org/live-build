@@ -3,7 +3,6 @@
 apt-get install -y git \
 	live-config \
 	live-build \
-	live-tools \
 	squashfs-tools \
 	casper \
 	zsync \
