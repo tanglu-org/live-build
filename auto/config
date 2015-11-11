@@ -112,10 +112,8 @@ EOF
 # set the right live-cd bootmenu for this flavor
 if [ x"${FLAVOR,,}" = x"core" ]; then
   cp -f config/bootloaders/live.cfg.core.in config/bootloaders/isolinux/live.cfg.in
-  cp -f config/bootloaders/live.cfg.core.in config/bootloaders/syslinux/live.cfg.in
 else
   cp -f config/bootloaders/live.cfg.in config/bootloaders/isolinux/
-  cp -f config/bootloaders/live.cfg.in config/bootloaders/syslinux/
 fi
 
 # create a pretty version name, containing all information
@@ -137,8 +135,7 @@ lb_opts="$lb_opts --security false --updates true"
 # update our splash screen
 sed -e s/@FLAVOR_PRETTY@/"$FLAVOR_PRETTY"/g config/bootloaders/splash.svg.in > config/bootloaders/splash.svg
 sed -i s/@VERSION@/"$VERSION_PRETTY"/g config/bootloaders/splash.svg
-cp -f config/bootloaders/splash.svg config/bootloaders/isolinux/
-mv -f config/bootloaders/splash.svg config/bootloaders/syslinux/
+mv -f config/bootloaders/splash.svg config/bootloaders/isolinux/
 
 # FIXME: should be fixed in the live-build autodetection
 case "$arch" in
