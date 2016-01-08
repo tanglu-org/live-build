@@ -7,4 +7,3 @@ label installgui
 label hd
 	menu label ^Boot from first hard disk
 	localboot 0x80
-	append -
