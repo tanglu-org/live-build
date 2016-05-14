@@ -69,7 +69,6 @@ case "$FLAVOR" in
     # create package config
     cat > config/package-lists/desktop.list.chroot <<EOF
 tanglu-standard
-grub2
 tanglu-kde
 calamares-branding-tanglu-kde
 calamares
@@ -85,7 +84,6 @@ EOF
     # create package config
     cat > config/package-lists/desktop.list.chroot <<EOF
 tanglu-standard
-grub2
 tanglu-gnome
 calamares-branding-tanglu-gnome
 calamares
@@ -98,7 +96,6 @@ EOF
     # create package config
     cat > config/package-lists/desktop.list.chroot <<EOF
 tanglu-standard
-grub2
 EOF
   ;;
 esac
