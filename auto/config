@@ -134,6 +134,9 @@ sed -e s/@FLAVOR_PRETTY@/"$FLAVOR_PRETTY"/g config/bootloaders/splash.svg.in > c
 sed -i s/@VERSION@/"$VERSION_PRETTY"/g config/bootloaders/splash.svg
 mv -f config/bootloaders/splash.svg config/bootloaders/isolinux/
 
+# Update GRUB EFI menu for our flavor
+sed -e s/@FLAVOR@/"$FLAVOR"/g config/bootloaders/grub-efi.cfg.in > config/bootloaders/isolinux/grub-efi.cfg
+
 # FIXME: should be fixed in the live-build autodetection
 case "$arch" in
   amd64)

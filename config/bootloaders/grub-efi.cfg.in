@@ -20,19 +20,19 @@ fi
 insmod play
 play 480 440 1
 
-menuentry "Start Tanglu Live (@FLAVOUR@)" {
+menuentry "Start Tanglu Live (@FLAVOR@)" {
 	set gfxpayload=keep
 	linux	@LINUX@ boot=casper @APPEND_LIVE@ ---
 	initrd	@INITRD@
 }
 
-menuentry "Start Tanglu Live (@FLAVOUR@ failsafe)" {
+menuentry "Start Tanglu Live (@FLAVOR@ failsafe)" {
 	set gfxpayload=keep
 	linux	@LINUX@ boot=casper @APPEND_LIVE_FAILSAFE@ ---
 	initrd	@INITRD@
 }
 
-menuentry "Install Tanglu (@FLAVOUR@)" {
+menuentry "Install Tanglu (@FLAVOR@)" {
 	set gfxpayload=keep
 	linux	/install/gtk/vmlinuz video=vesa:ywrap,mtrr vga=788 @APPEND_INSTALL@ -- quiet
 	initrd	/install/gtk/initrd.gz

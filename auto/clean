@@ -9,4 +9,5 @@ rm -f  config/bootloaders/syslinux/splash.svg
 rm -f  config/bootloaders/isolinux/splash.svg
 rm -f  config/bootloaders/syslinux/live.cfg.in
 rm -f  config/bootloaders/isolinux/live.cfg.in
+rm -f  config/bootloaders/isolinux/grub-efi.cfg
 rm -f  build.log
